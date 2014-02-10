@@ -1,14 +1,11 @@
-﻿using Microsoft.Kinect;
+﻿#region using...
+using Microsoft.Kinect;
+#endregion
 
 namespace GestureLib.Gestures
 {
     public class JoinedHandsSegment1 : IGestureSegment
     {
-        /// <summary>
-        /// Updates the current gesture.
-        /// </summary>
-        /// <param name="skeleton">The skeleton.</param>
-        /// <returns>A GesturePartResult based on whether the gesture part has been completed.</returns>
         public GesturePartResult Update(Skeleton skeleton)
         {
             // Right and Left Hand in front of Shoulders
@@ -39,6 +36,5 @@ namespace GestureLib.Gestures
 
             return GesturePartResult.Failed;
         }
-
     }
 }

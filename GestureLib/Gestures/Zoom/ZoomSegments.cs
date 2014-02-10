@@ -1,4 +1,6 @@
-﻿using Microsoft.Kinect;
+﻿#region using...
+using Microsoft.Kinect;
+#endregion
 
 namespace GestureLib.Gestures
 {
@@ -9,8 +11,6 @@ namespace GestureLib.Gestures
             // Right and Left Hand in front of Shoulders
             if (skeleton.Joints[JointType.HandLeft].Position.Z < skeleton.Joints[JointType.ElbowLeft].Position.Z && skeleton.Joints[JointType.HandRight].Position.Z < skeleton.Joints[JointType.ElbowRight].Position.Z)
             {
-                //Debug.WriteLine("Zoom 0 - Right hand in front of right shoudler - PASS");
-
                 // Hands between shoulder and hip
                 if (skeleton.Joints[JointType.HandRight].Position.Y < skeleton.Joints[JointType.ShoulderCenter].Position.Y && skeleton.Joints[JointType.HandRight].Position.Y > skeleton.Joints[JointType.HipCenter].Position.Y &&
                     skeleton.Joints[JointType.HandLeft].Position.Y < skeleton.Joints[JointType.ShoulderCenter].Position.Y && skeleton.Joints[JointType.HandLeft].Position.Y > skeleton.Joints[JointType.HipCenter].Position.Y)

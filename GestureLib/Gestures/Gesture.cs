@@ -1,82 +1,39 @@
-﻿using Microsoft.Kinect;
+﻿#region using...
+using Microsoft.Kinect;
 using System;
+#endregion
 
 namespace GestureLib
 {
-    /// <summary>
-    /// Represents a Kinect <see cref="Gesture"/>.
-    /// </summary>
     class Gesture
     {
         #region Constants
 
-        /// <summary>
-        /// The window size.
-        /// </summary>
         readonly int WINDOW_SIZE = 50;
-
-        /// <summary>
-        /// The maximum number of frames allowed for a paused gesture.
-        /// </summary>
-        readonly int MAX_PAUSE_COUNT = 10;
+        readonly int MAX_PAUSE_COUNT = 10; // The max frames for a paused gesture.
 
         #endregion
 
         #region Members
 
-        /// <summary>
-        /// The segments which form the current gesture.
-        /// </summary>
-        IGestureSegment[] _segments;
-
-        /// <summary>
-        /// The current gesture segment we are matching against.
-        /// </summary>
-        int _currentSegment = 0;
-
-        /// <summary>
-        /// The number of frames to pause for when a pause is initiated.
-        /// </summary>
-        int _pausedFrameCount = 10;
-
-        /// <summary>
-        /// The current frame.
-        /// </summary>
-        int _frameCount = 0;
-
-        /// <summary>
-        /// Are we paused?
-        /// </summary>
-        bool _paused = false;
-
-        /// <summary>
-        /// The name of the current gesture.
-        /// </summary>
-        string _name;
-
-        /// <summary>
-        /// The type of the current gesture.
-        /// </summary>
-        GestureType _type;
+        IGestureSegment[] _segments;    
+        int _currentSegment = 0;        // The current gesture segment are matching.
+        int _pausedFrameCount = 10;     // The number of frames to paused.
+        int _frameCount = 0;            // Current frame.
+        bool _paused = false;           // Paused status.
+        string _name;                   // Gesture name.
+        GestureType _type;              
 
         #endregion
 
         #region Events
 
-        /// <summary>
-        /// Occurs when a gesture is recognised.
-        /// </summary>
         public event EventHandler<GestureEventArgs> GestureRecognized;
 
         #endregion
 
         #region Constructor
 
-        /// <summary>
-        /// Initializes a new instance of <see cref="Gesture"/>.
-        /// </summary>
-        /// <param name="name">The name of gesture.</param>
-        /// <param name="segments">The segments of the gesture.</param>
         public Gesture(string name, IGestureSegment[] segments)
         {
             _name = name;
@@ -95,10 +52,6 @@ namespace GestureLib
 
         #region Methods
 
-        /// <summary>
-        /// Updates the current gesture.
-        /// </summary>
-        /// <param name="skeleton">The skeleton data.</param>
         public void Update(Skeleton skeleton)
         {
             if (_paused)
@@ -126,7 +79,7 @@ namespace GestureLib
                 {
                     if (GestureRecognized != null)
                     {
-                        GestureRecognized(this, new GestureEventArgs(_name, skeleton.TrackingId));
+                        GestureRecognized(this, new GestureEventArgs(_name, skeleton.TrackingId));   // Event Publication
                         Reset();
                     }
                 }
@@ -143,9 +96,6 @@ namespace GestureLib
             }
         }
 
-        /// <summary>
-        /// Resets the current gesture.
-        /// </summary>
         public void Reset()
         {
             _currentSegment = 0;

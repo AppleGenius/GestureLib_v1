@@ -1,15 +1,14 @@
-﻿using System;
+﻿#region using...
+using System;
 using System.Windows.Media;
 using Microsoft.Kinect;
 using System.Windows.Media.Imaging;
 using System.IO;
 using System.Diagnostics;
+#endregion
 
 namespace GestureLib.WPF
 {
-    /// <summary>
-    /// Provides some common functionality for manipulating depth frames.
-    /// </summary>
     public static class DepthExtensions
     {
         #region Constants
@@ -26,13 +25,6 @@ namespace GestureLib.WPF
 
         #region Public methods
 
-        /// <summary>
-        /// Converts a depth frame to the corresponding System.Windows.Media.ImageSource.
-        /// </summary>
-        /// <param name="frame">The specified depth frame.</param>
-        /// <param name="format">Pixel format of the depth frame.</param>
-        /// <param name="mode">Depth frame mode.</param>
-        /// <returns>The corresponding System.Windows.Media.ImageSource representation of the depth frame.</returns>
         public static ImageSource ToBitmap(this DepthImageFrame frame, PixelFormat format, DepthImageMode mode)
         {
             short[] pixelData = new short[frame.PixelDataLength];
@@ -62,33 +54,16 @@ namespace GestureLib.WPF
             return pixels.ToBitmap(frame.Width, frame.Height, format);
         }
 
-        /// <summary>
-        /// Converts a depth frame to the corresponding System.Windows.Media.ImageSource.
-        /// </summary>
-        /// <param name="frame">The specified depth frame.</param>
-        /// <param name="format"></param>
-        /// <returns>The corresponding System.Windows.Media.ImageSource representation of the depth frame.</returns>
         public static ImageSource ToBitmap(this DepthImageFrame frame, PixelFormat format)
         {
             return frame.ToBitmap(format, DepthImageMode.Raw);
         }
 
-        /// <summary>
-        /// Converts a depth frame to the corresponding System.Windows.Media.ImageSource.
-        /// </summary>
-        /// <param name="frame">The specified depth frame.</param>
-        /// <param name="mode">Depth frame mode.</param>
-        /// <returns>The corresponding System.Windows.Media.ImageSource representation of the depth frame.</returns>
         public static ImageSource ToBitmap(this DepthImageFrame frame, DepthImageMode mode)
         {
             return frame.ToBitmap(PixelFormats.Bgr32, mode);
         }
 
-        /// <summary>
-        /// Converts a depth frame to the corresponding System.Windows.Media.ImageSource.
-        /// </summary>
-        /// <param name="frame">The specified depth frame.</param>
-        /// <returns>The corresponding System.Windows.Media.ImageSource representation of the depth frame.</returns>
         public static ImageSource ToBitmap(this DepthImageFrame frame)
         {
             return frame.ToBitmap(PixelFormats.Bgr32, DepthImageMode.Raw);
@@ -102,49 +77,40 @@ namespace GestureLib.WPF
         {
             byte[] pixels = new byte[frame.Height * frame.Width * 4];
 
-            // Bgr32  - Blue, Green, Red, empty byte
-            // Bgra32 - Blue, Green, Red, transparency 
-            // You must set transparency for Bgra as .NET defaults a byte to 0 = fully transparent
-
-            // Loop through all distances and pick a RGB color based on distance
             for (int depthIndex = 0, colorIndex = 0; depthIndex < pixelData.Length && colorIndex < pixels.Length; depthIndex++, colorIndex += 4)
             {
-                // Get the player (requires skeleton tracking enabled for values).
                 int player = pixelData[depthIndex] & DepthImageFrame.PlayerIndexBitmask;
 
-                // Get the depth value.
                 int depth = pixelData[depthIndex] >> DepthImageFrame.PlayerIndexBitmaskWidth;
 
-                // .9M or 2.95'
-                if (depth <= 900) // ---> We are very close.
+                // .9M very close
+                if (depth <= 900) 
                 {
                     pixels[colorIndex + BLUE_INDEX] = 255;
                     pixels[colorIndex + GREEN_INDEX] = 0;
                     pixels[colorIndex + RED_INDEX] = 0;
 
                 }
-                // .9M - 2M or 2.95' - 6.56'
-                else if (depth > 900 && depth < 2000) // ---> We are a bit further away.
+                // .9M - 2M a bit further away
+                else if (depth > 900 && depth < 2000)
                 {
                     pixels[colorIndex + BLUE_INDEX] = 0;
                     pixels[colorIndex + GREEN_INDEX] = 255;
                     pixels[colorIndex + RED_INDEX] = 0;
                 }
-                // 2M+ or 6.56'+
-                else if (depth > 2000) // ---> We are the farthest.
+                // 2M+ farthest
+                else if (depth > 2000) 
                 {
                     pixels[colorIndex + BLUE_INDEX] = 0;
                     pixels[colorIndex + GREEN_INDEX] = 0;
                     pixels[colorIndex + RED_INDEX] = 255;
                 }
 
-                // Equal coloring for monochromatic histogram.
                 byte intensity = CalculateIntensityFromDepth(depth);
                 pixels[colorIndex + BLUE_INDEX] = intensity;
                 pixels[colorIndex + GREEN_INDEX] = intensity;
                 pixels[colorIndex + RED_INDEX] = intensity;
 
-                // Color all players "gold".
                 if (player > 0)
                 {
                     pixels[colorIndex + BLUE_INDEX] = Colors.Gold.B;
@@ -160,20 +126,12 @@ namespace GestureLib.WPF
         {
             byte[] pixels = new byte[frame.Height * frame.Width * 4];
 
-            // Bgr32  - Blue, Green, Red, empty byte
-            // Bgra32 - Blue, Green, Red, transparency 
-            // You must set transparency for Bgra as .NET defaults a byte to 0 = fully transparent
-
-            // Loop through all distances and pick a RGB color based on distance
             for (int depthIndex = 0, colorIndex = 0; depthIndex < pixelData.Length && colorIndex < pixels.Length; depthIndex++, colorIndex += 4)
             {
-                // Get the player (requires skeleton tracking enabled for values).
                 int player = pixelData[depthIndex] & DepthImageFrame.PlayerIndexBitmask;
 
-                // Get the depth value.
                 int depth = pixelData[depthIndex] >> DepthImageFrame.PlayerIndexBitmaskWidth;
 
-                // Color all players "gold".
                 if (player > 0)
                 {
                     pixels[colorIndex + BLUE_INDEX] = Colors.Gold.B;
@@ -321,36 +279,21 @@ namespace GestureLib.WPF
 
         private static byte CalculateIntensityFromDepth(int distance)
         {
-            // Formula for calculating monochrome intensity for histogram.
             return (byte)(255 - (255 * Math.Max(distance - MIN_DEPTH_DISTANCE, 0) / (MAX_DEPTH_DISTANCE_OFFSET)));
         }
 
         #endregion
     }
 
-    /// <summary>
-    /// Represents the depth image mode (raw pixels, grayscale, colored).
-    /// </summary>
+
     public enum DepthImageMode
     {
-        /// <summary>
-        /// The simplest representation of a depth image.
-        /// </summary>
         Raw,
 
-        /// <summary>
-        /// Depth image representation in a grayscale format.
-        /// </summary>
         Dark,
 
-        /// <summary>
-        /// Colored depth image representation.
-        /// </summary>
         Colors,
 
-        /// <summary>
-        /// Player depth frame representation.
-        /// </summary>
         Player
     }
 }

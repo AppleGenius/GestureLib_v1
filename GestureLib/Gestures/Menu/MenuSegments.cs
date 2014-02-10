@@ -1,17 +1,11 @@
-﻿using Microsoft.Kinect;
+﻿#region using...
+using Microsoft.Kinect;
+#endregion
 
 namespace GestureLib.Gestures
 {
-    /// <summary>
-    /// The menu gesture segment
-    /// </summary>
     public class MenuSegment1 : IGestureSegment
     {
-        /// <summary>
-        /// Updates the current gesture.
-        /// </summary>
-        /// <param name="skeleton">The skeleton.</param>
-        /// <returns>A GesturePartResult based on whether the gesture part has been completed.</returns>
         public GesturePartResult Update(Skeleton skeleton)
         {
             // Left and right hands below hip

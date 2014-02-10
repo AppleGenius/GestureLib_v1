@@ -1,4 +1,6 @@
-﻿using GestureLib;
+﻿#region using...
+
+using GestureLib;
 using GestureLib.WPF;
 using Microsoft.Kinect;
 using System;
@@ -16,11 +18,10 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 
+#endregion
+
 namespace VitruviusTest
 {
-    /// <summary>
-    /// Interaction logic for MainWindow.xaml
-    /// </summary>
     public partial class MainWindow : Window
     {
         Mode _mode = Mode.Color;
@@ -85,7 +86,6 @@ namespace VitruviusTest
                 if (frame != null)
                 {
                     canvas.ClearSkeletons();
-                    //tblHeights.Text = string.Empty;
 
                     var skeletons = frame.Skeletons().Where(s => s.TrackingState == SkeletonTrackingState.Tracked);
 
@@ -96,11 +96,7 @@ namespace VitruviusTest
                             // Update skeleton gestures.
                             _gestureController.Update(skeleton);
 
-                            // Draw skeleton.
                             canvas.DrawSkeleton(skeleton);
-
-                            // Display user height.
-                            // tblHeights.Text += string.Format("\nUser {0}: {1}cm", skeleton.TrackingId, skeleton.Height());
                         }
                     }
                 }
@@ -109,10 +105,8 @@ namespace VitruviusTest
 
         void GestureController_GestureRecognized(object sender, GestureEventArgs e)
         {
-            // Display the gesture type.
             tblGestures.Text = e.Name;
 
-            // Do something according to the type of the gesture.
             switch (e.Type)
             {
                 case GestureType.JoinedHands:

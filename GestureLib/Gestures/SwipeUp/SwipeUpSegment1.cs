@@ -1,21 +1,14 @@
-﻿using Microsoft.Kinect;
+﻿#region using...
+using Microsoft.Kinect;
 using System.Diagnostics;
+#endregion
 
 namespace GestureLib.Gestures
 {
-    /// <summary>
-    /// The first part of the swipe up gesture
-    /// </summary>
     public class SwipeUpSegment1 : IGestureSegment
     {
-        /// <summary>
-        /// Updates the current gesture.
-        /// </summary>
-        /// <param name="skeleton">The skeleton.</param>
-        /// <returns>A GesturePartResult based on whether the gesture part has been completed.</returns>
         public GesturePartResult Update(Skeleton skeleton)
         {
-
             // right hand in front of right elbow
             if (skeleton.Joints[JointType.HandRight].Position.Z < skeleton.Joints[JointType.ElbowRight].Position.Z)
             {
