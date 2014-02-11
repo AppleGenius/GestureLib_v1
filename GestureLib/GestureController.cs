@@ -1,8 +1,8 @@
-﻿using GestureLib.Gestures;
-#region using...
+﻿#region using...
 using Microsoft.Kinect;
 using System;
 using System.Collections.Generic;
+using GestureLib.Gestures;
 #endregion
 
 namespace GestureLib

@@ -19,7 +19,7 @@ namespace GestureLib
         IGestureSegment[] _segments;    
         int _currentSegment = 0;        // The current gesture segment are matching.
         int _pausedFrameCount = 10;     // The number of frames to paused.
-        int _frameCount = 0;            // Current frame.
+        int _frameCount = 0;            // The pause frame counter.
         bool _paused = false;           // Paused status.
         string _name;                   // Gesture name.
         GestureType _type;              
@@ -64,6 +64,7 @@ namespace GestureLib
                 _frameCount++;
             }
 
+            // Current segment result
             GesturePartResult result = _segments[_currentSegment].Update(skeleton);
 
             if (result == GesturePartResult.Succeeded)
@@ -79,7 +80,8 @@ namespace GestureLib
                 {
                     if (GestureRecognized != null)
                     {
-                        GestureRecognized(this, new GestureEventArgs(_name, skeleton.TrackingId));   // Event Publication
+                        // Event Publication
+                        GestureRecognized(this, new GestureEventArgs(_name, skeleton.TrackingId));   
                         Reset();
                     }
                 }
