@@ -10,7 +10,7 @@ namespace GestureLib
         #region Constants
 
         readonly int WINDOW_SIZE = 50;
-        readonly int MAX_PAUSE_COUNT = 10; // The max frames for a paused gesture.
+        readonly int MAX_PAUSE_COUNT = 10; 
 
         #endregion
 

@@ -21,10 +21,8 @@ namespace GestureLib.Gestures
                     }
                     return GesturePartResult.Undetermined;
                 }
-
                 return GesturePartResult.Failed;
             }
-
             return GesturePartResult.Failed;
         }
     }

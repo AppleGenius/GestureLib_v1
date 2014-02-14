@@ -61,7 +61,6 @@ namespace GestureLib
         {
             IGestureSegment[] segments = null;
 
-            // Add the new segments here.
             switch (type)
             {
                 case GestureType.JoinedHands:
@@ -146,6 +145,13 @@ namespace GestureLib
                     segments[0] = new ZoomSegment3();
                     segments[1] = new ZoomSegment2();
                     segments[2] = new ZoomSegment1();
+                    break;
+
+                case GestureType.Rotate:
+                    segments = new IGestureSegment[3];
+                    segments[0] = new RotateSegments1();
+                    segments[0] = new RotateSegments2();
+                    segments[0] = new RotateSegments3();
                     break;
 
                 case GestureType.All:

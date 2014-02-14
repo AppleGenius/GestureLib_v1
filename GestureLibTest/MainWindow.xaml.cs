@@ -93,9 +93,7 @@ namespace VitruviusTest
                     {
                         if (skeleton != null)
                         {
-                            // Update skeleton gestures.
                             _gestureController.Update(skeleton);
-
                             canvas.DrawSkeleton(skeleton);
                         }
                     }
@@ -128,6 +126,8 @@ namespace VitruviusTest
                 case GestureType.ZoomIn:
                     break;
                 case GestureType.ZoomOut:
+                    break;
+                case GestureType.Rotate:
                     break;
                 default:
                     break;

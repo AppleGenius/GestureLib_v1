@@ -28,6 +28,9 @@ namespace GestureLib
 
         ZoomIn,
 
-        ZoomOut
+        ZoomOut,
+
+        Rotate
+
     }
 }
