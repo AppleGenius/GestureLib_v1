@@ -30,7 +30,13 @@ namespace GestureLib
 
         ZoomOut,
 
-        Rotate
+        RotateClock,
+
+        RotateAntiClock,
+
+        TranslateRight,
+
+        TranslateLeft
 
     }
 }

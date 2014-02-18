@@ -51,7 +51,10 @@
     <Compile Include="Gestures\GestureEventArgs.cs" />
     <Compile Include="Gestures\GestureType.cs" />
     <Compile Include="Gestures\IGestureSegment.cs" />
-    <Compile Include="Gestures\Rotate\RotateSegments.cs" />
+    <Compile Include="Gestures\Rotate\RotateAntiClockSegments.cs" />
+    <Compile Include="Gestures\Rotate\RotateClockSegments.cs" />
+    <Compile Include="Gestures\Translate\TranslateLeftSegments.cs" />
+    <Compile Include="Gestures\Translate\TranslateRightSegments.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Gestures\JoinedHands\JoinedHandsSegment.cs" />
     <Compile Include="Gestures\Menu\MenuSegments.cs" />
@@ -70,7 +73,6 @@
     <Compile Include="SkeletonExtensions.cs" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="Gestures\Translate\" />
     <Folder Include="Postures\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

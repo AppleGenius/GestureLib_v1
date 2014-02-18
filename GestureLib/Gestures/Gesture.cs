@@ -44,7 +44,6 @@ namespace GestureLib
         {
             _type = type;
             _segments = segments;
-
             _name = type.ToString();
         }
 
@@ -60,11 +59,9 @@ namespace GestureLib
                 {
                     _paused = false;
                 }
-
                 _frameCount++;
             }
 
-            // Current segment result
             GesturePartResult result = _segments[_currentSegment].Update(skeleton);
 
             if (result == GesturePartResult.Succeeded)

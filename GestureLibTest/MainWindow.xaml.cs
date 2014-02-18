@@ -127,8 +127,15 @@ namespace VitruviusTest
                     break;
                 case GestureType.ZoomOut:
                     break;
-                case GestureType.Rotate:
+                case GestureType.RotateClock:
                     break;
+                case GestureType.RotateAntiClock:
+                    break;
+                case GestureType.TranslateRight:
+                    break;
+                case GestureType.TranslateLeft:
+                    break;
+
                 default:
                     break;
             }

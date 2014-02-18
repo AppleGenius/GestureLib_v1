@@ -4,7 +4,7 @@ using Microsoft.Kinect;
 
 namespace GestureLib.Gestures
 {
-    public class RotateSegments1:IGestureSegment
+    public class RotateClockSegments1:IGestureSegment
     {
         public GesturePartResult Update(Skeleton skeleton)
         {
@@ -30,7 +30,7 @@ namespace GestureLib.Gestures
     }
 
 
-    public class RotateSegments2 : IGestureSegment
+    public class RotateClockSegments2 : IGestureSegment
     {
         public GesturePartResult Update(Skeleton skeleton)
         {
@@ -49,7 +49,7 @@ namespace GestureLib.Gestures
     }
 
 
-    public class RotateSegments3 : IGestureSegment
+    public class RotateClockSegments3 : IGestureSegment
     {
         public GesturePartResult Update(Skeleton skeleton)
         {
