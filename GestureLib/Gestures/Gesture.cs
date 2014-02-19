@@ -10,7 +10,7 @@ namespace GestureLib
         #region Constants
 
         readonly int WINDOW_SIZE = 50;
-        readonly int MAX_PAUSE_COUNT = 10; 
+        readonly int MAX_PAUSE_COUNT = 10; // The max frames for a paused gesture.
 
         #endregion
 
@@ -44,6 +44,7 @@ namespace GestureLib
         {
             _type = type;
             _segments = segments;
+
             _name = type.ToString();
         }
 
@@ -59,9 +60,11 @@ namespace GestureLib
                 {
                     _paused = false;
                 }
+
                 _frameCount++;
             }
 
+            // Current segment result
             GesturePartResult result = _segments[_currentSegment].Update(skeleton);
 
             if (result == GesturePartResult.Succeeded)

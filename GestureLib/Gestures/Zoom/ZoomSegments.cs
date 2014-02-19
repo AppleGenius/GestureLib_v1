@@ -8,7 +8,7 @@ namespace GestureLib.Gestures
     {
         public GesturePartResult Update(Skeleton skeleton)
         {
-            // Right and Left Hand in front of elbow
+            // Right and Left Hand in front of Shoulders
             if (skeleton.Joints[JointType.HandLeft].Position.Z < skeleton.Joints[JointType.ElbowLeft].Position.Z && skeleton.Joints[JointType.HandRight].Position.Z < skeleton.Joints[JointType.ElbowRight].Position.Z)
             {
                 // Hands between shoulder and hip

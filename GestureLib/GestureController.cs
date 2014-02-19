@@ -61,6 +61,7 @@ namespace GestureLib
         {
             IGestureSegment[] segments = null;
 
+            // Add the new segments here.
             switch (type)
             {
                 case GestureType.JoinedHands:
@@ -146,7 +147,6 @@ namespace GestureLib
                     segments[1] = new ZoomSegment2();
                     segments[2] = new ZoomSegment1();
                     break;
-
                 case GestureType.RotateClock:
                     segments = new IGestureSegment[3];
                     segments[0] = new RotateClockSegments1();
@@ -154,26 +154,26 @@ namespace GestureLib
                     segments[0] = new RotateClockSegments3();
                     break;
 
-                case GestureType.RotateAntiClock:
-                    segments = new IGestureSegment[3];
-                    segments[0] = new RotateAntiClockSegments1();
-                    segments[1] = new RotateAntiClockSegments2();
-                    segments[3] = new RotateAntiClockSegments3();
-                    break;
+                //case GestureType.RotateAntiClock:
+                //    segments = new IGestureSegment[3];
+                //    segments[0] = new RotateAntiClockSegments1();
+                //    segments[1] = new RotateAntiClockSegments2();
+                //    segments[3] = new RotateAntiClockSegments3();
+                //    break;
 
-                case GestureType.TranslateLeft:
-                    segments = new IGestureSegment[3];
-                    segments[0] = new TranslateLeftSegments1();
-                    segments[1] = new TranslateLeftSegments2();
-                    segments[2] = new TranslateLeftSegments3();
-                    break;
-                    
-                case GestureType.TranslateRight:
-                    segments = new IGestureSegment[3];
-                    segments[0] = new TranslateRightSegments1();
-                    segments[1] = new TranslateRightSegments2();
-                    segments[3] = new TranslateRightSegments3();
-                    break;
+                //case GestureType.TranslateLeft:
+                //    segments = new IGestureSegment[3];
+                //    segments[0] = new TranslateLeftSegments1();
+                //    segments[1] = new TranslateLeftSegments2();
+                //    segments[2] = new TranslateLeftSegments3();
+                //    break;
+
+                //case GestureType.TranslateRight:
+                //    segments = new IGestureSegment[3];
+                //    segments[0] = new TranslateRightSegments1();
+                //    segments[1] = new TranslateRightSegments2();
+                //    segments[3] = new TranslateRightSegments3();
+                //    break;
 
                 case GestureType.All:
                 case GestureType.None:

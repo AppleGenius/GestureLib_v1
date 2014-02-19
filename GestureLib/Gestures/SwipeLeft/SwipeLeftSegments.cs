@@ -65,10 +65,13 @@ namespace GestureLib.Gestures
                     {
                         return GesturePartResult.Succeeded;
                     }
+
                     return GesturePartResult.Undetermined;
                 }
+
                 return GesturePartResult.Failed;
             }
+
             return GesturePartResult.Failed;
         }
     }

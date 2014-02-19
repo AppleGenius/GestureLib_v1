@@ -3,7 +3,6 @@
 using GestureLib;
 using GestureLib.WPF;
 using Microsoft.Kinect;
-using System.Diagnostics;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -50,38 +49,6 @@ namespace VitruviusTest
 
                 sensor.Start();
             }
-
-            KinectSensor.KinectSensors.StatusChanged += (s, ee) =>
-                {
-                    switch (ee.Status)
-                    {
-                        case KinectStatus.Connected:
-                            if (sensor == null)
-                            {
-                                Debug.WriteLine("New Kinect connected");
-
-                            }
-                            else
-                            {
-                                Debug.WriteLine("Existing Kinect signalled connection");
-                            }
-                            break;
-
-                        default:
-                            if (ee.Sensor == sensor)
-                            {
-                                Debug.WriteLine("Existing Kinect disconnected");
-                                //UninitializeNui();
-                            }
-                            else
-                            {
-                                Debug.WriteLine("Other Kinect event occurred");
-                            }
-                            break;
-                    }
-                };
-
-
         }
 
         void Sensor_ColorFrameReady(object sender, ColorImageFrameReadyEventArgs e)
@@ -126,7 +93,9 @@ namespace VitruviusTest
                     {
                         if (skeleton != null)
                         {
+                            // Update skeleton gestures.
                             _gestureController.Update(skeleton);
+
                             canvas.DrawSkeleton(skeleton);
                         }
                     }
@@ -160,15 +129,6 @@ namespace VitruviusTest
                     break;
                 case GestureType.ZoomOut:
                     break;
-                case GestureType.RotateClock:
-                    break;
-                case GestureType.RotateAntiClock:
-                    break;
-                case GestureType.TranslateRight:
-                    break;
-                case GestureType.TranslateLeft:
-                    break;
-
                 default:
                     break;
             }
@@ -184,7 +144,7 @@ namespace VitruviusTest
             _mode = Mode.Depth;
         }
     }
-
+    
     public enum Mode
     {
         Color,
