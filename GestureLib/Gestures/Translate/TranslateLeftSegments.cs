@@ -8,7 +8,7 @@ namespace GestureLib.Gestures
     {
         public GesturePartResult Update(Skeleton skeleton)
         {
-
+            return GesturePartResult.Failed;
         }
     }
 
@@ -16,7 +16,7 @@ namespace GestureLib.Gestures
     {
         public GesturePartResult Update(Skeleton skeleton)
         {
-
+            return GesturePartResult.Failed;
         }
     }
 
@@ -24,7 +24,7 @@ namespace GestureLib.Gestures
     {
         public GesturePartResult Update(Skeleton skeleton)
         {
-
+            return GesturePartResult.Failed;
         }
     }
 }

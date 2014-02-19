@@ -33,12 +33,15 @@ namespace GestureLib.Gestures
     {
         public GesturePartResult Update(Skeleton skeleton)
         {
-
+            return GesturePartResult.Failed;
         }
     }
 
     public class RotateAntiClockSegments3 : IGestureSegment
     {
-
+        public GesturePartResult Update(Skeleton skeleton)
+        {
+            return GesturePartResult.Failed;
+        }
     }
 }
