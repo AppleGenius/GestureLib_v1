@@ -20,7 +20,7 @@ using System.Windows.Shapes;
 
 #endregion
 
-namespace VitruviusTest
+namespace GestureLibTest
 {
     public partial class MainWindow : Window
     {
@@ -133,8 +133,8 @@ namespace VitruviusTest
                 //    break;
                 case GestureType.TranslateLeft:
                     break;
-                //case GestureType.TranslateRight:
-                    //break;
+                case GestureType.TranslateRight:
+                    break;
 
                 default:
                     break;

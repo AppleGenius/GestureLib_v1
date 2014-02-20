@@ -133,14 +133,14 @@ namespace GestureLib
                     segments[5] = waveRightSegment2;
                     break;
 
-                case GestureType.ZoomIn:
+                case GestureType.ZoomOut:
                     segments = new IGestureSegment[3];
                     segments[0] = new ZoomSegment1();
                     segments[1] = new ZoomSegment2();
                     segments[2] = new ZoomSegment3();
                     break;
 
-                case GestureType.ZoomOut:
+                case GestureType.ZoomIn:
                     segments = new IGestureSegment[3];
                     segments[0] = new ZoomSegment3();
                     segments[1] = new ZoomSegment2();
@@ -153,12 +153,12 @@ namespace GestureLib
                     segments[0] = new RotateClockSegments3();
                     break;
 
-                //case GestureType.RotateAntiClock:
-                //    segments = new IGestureSegment[3];
-                //    segments[0] = new RotateAntiClockSegments1();
-                //    segments[1] = new RotateAntiClockSegments2();
-                //    segments[3] = new RotateAntiClockSegments3();
-                //    break;
+                case GestureType.RotateAntiClock:
+                    segments = new IGestureSegment[3];
+                    segments[0] = new RotateAntiClockSegments1();
+                    segments[1] = new RotateAntiClockSegments2();
+                    segments[2] = new RotateAntiClockSegments3();
+                    break;
 
                 case GestureType.TranslateLeft:
                     segments = new IGestureSegment[3];
@@ -167,16 +167,16 @@ namespace GestureLib
                     segments[2] = new TranslateLeftSegments3();
                     break;
 
-                //case GestureType.TranslateRight:
-                //    segments = new IGestureSegment[3];
-                //    segments[0] = new TranslateRightSegments1();
-                //    segments[1] = new TranslateRightSegments2();
-                //    segments[3] = new TranslateRightSegments3();
-                //    break;
+                case GestureType.TranslateRight:
+                    segments = new IGestureSegment[3];
+                    segments[0] = new TranslateRightSegments1();
+                    segments[1] = new TranslateRightSegments2();
+                    segments[2] = new TranslateRightSegments3();
+                    break;
 
                 case GestureType.All:
                 case GestureType.None:
-                
+
                 default:
                     break;
             }
