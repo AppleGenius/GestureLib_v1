@@ -56,7 +56,7 @@ namespace GestureLib.Gestures
             // Right and left hand in front of the Elbow
             if (skeleton.Joints[JointType.HandLeft].Position.Z < skeleton.Joints[JointType.ElbowLeft].Position.Z && skeleton.Joints[JointType.HandRight].Position.Z < skeleton.Joints[JointType.ElbowRight].Position.Z)
             {
-
+                
             }
             return GesturePartResult.Failed;
         }

@@ -32,9 +32,9 @@ namespace GestureLib
 
         RotateClock,
 
-        RotateAntiClock,
+        //RotateAntiClock,
 
-        TranslateRight,
+        //TranslateRight,
 
         TranslateLeft
 

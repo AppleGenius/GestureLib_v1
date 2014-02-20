@@ -61,7 +61,6 @@ namespace GestureLib
         {
             IGestureSegment[] segments = null;
 
-            // Add the new segments here.
             switch (type)
             {
                 case GestureType.JoinedHands:
@@ -161,12 +160,12 @@ namespace GestureLib
                 //    segments[3] = new RotateAntiClockSegments3();
                 //    break;
 
-                //case GestureType.TranslateLeft:
-                //    segments = new IGestureSegment[3];
-                //    segments[0] = new TranslateLeftSegments1();
-                //    segments[1] = new TranslateLeftSegments2();
-                //    segments[2] = new TranslateLeftSegments3();
-                //    break;
+                case GestureType.TranslateLeft:
+                    segments = new IGestureSegment[3];
+                    segments[0] = new TranslateLeftSegments1();
+                    segments[1] = new TranslateLeftSegments2();
+                    segments[2] = new TranslateLeftSegments3();
+                    break;
 
                 //case GestureType.TranslateRight:
                 //    segments = new IGestureSegment[3];
