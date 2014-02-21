@@ -24,7 +24,7 @@ namespace GestureLibTest
 {
     public partial class MainWindow : Window
     {
-        Mode _mode = Mode.Color;
+       Mode _mode = Mode.Color;
 
         GestureController _gestureController;
 
@@ -39,15 +39,22 @@ namespace GestureLibTest
 
             if (sensor != null)
             {
-                sensor.EnableAllStreams();
-                sensor.ColorFrameReady += Sensor_ColorFrameReady;
-                sensor.DepthFrameReady += Sensor_DepthFrameReady;
-                sensor.SkeletonFrameReady += Sensor_SkeletonFrameReady;
+                try
+                {
+                    sensor.EnableAllStreams();
+                    sensor.ColorFrameReady += Sensor_ColorFrameReady;
+                    sensor.DepthFrameReady += Sensor_DepthFrameReady;
+                    sensor.SkeletonFrameReady += Sensor_SkeletonFrameReady;
 
-                _gestureController = new GestureController(GestureType.All);
-                _gestureController.GestureRecognized += GestureController_GestureRecognized;
+                    _gestureController = new GestureController(GestureType.All);
+                    _gestureController.GestureRecognized += GestureController_GestureRecognized;
 
-                sensor.Start();
+                    sensor.Start();
+                }
+                catch(InvalidOperationException)
+                {
+
+                }
             }
         }
 
@@ -129,8 +136,8 @@ namespace GestureLibTest
                     break;
                 case GestureType.RotateClock:
                     break;
-                //case GestureType.RotateAntiClock:
-                //    break;
+                case GestureType.RotateAntiClock:
+                    break;
                 case GestureType.TranslateLeft:
                     break;
                 case GestureType.TranslateRight:

@@ -20,7 +20,7 @@ namespace GestureLib.Gestures
                     if (skeleton.Joints[JointType.HandLeft].Position.X > skeleton.Joints[JointType.ShoulderCenter].Position.X && skeleton.Joints[JointType.HandRight].Position.X > skeleton.Joints[JointType.ShoulderCenter].Position.X)
                     {
                         // Hands very close  the distance threshold can be changed 
-                        if (Math.Abs(skeleton.Joints[JointType.HandRight].Position.X - skeleton.Joints[JointType.HandLeft].Position.X) < 0.1)
+                        if (Math.Abs(skeleton.Joints[JointType.HandRight].Position.X - skeleton.Joints[JointType.HandLeft].Position.X) < 0)
                         {
                             return GesturePartResult.Succeeded;
                         }
@@ -50,7 +50,7 @@ namespace GestureLib.Gestures
                         skeleton.Joints[JointType.HandRight].Position.X > skeleton.Joints[JointType.ShoulderLeft].Position.X && skeleton.Joints[JointType.HandRight].Position.X < skeleton.Joints[JointType.ShoulderRight].Position.X)
                     {
                         // Hands very close  the distance threshold can be changed 
-                        if (Math.Abs(skeleton.Joints[JointType.HandRight].Position.X - skeleton.Joints[JointType.HandLeft].Position.X) < 0.1)
+                        if (Math.Abs(skeleton.Joints[JointType.HandRight].Position.X - skeleton.Joints[JointType.HandLeft].Position.X) < 0)
                         {
                             return GesturePartResult.Succeeded;
                         }
