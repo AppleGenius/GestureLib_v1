@@ -1,6 +1,5 @@
 ﻿#region using...
 using Microsoft.Kinect;
-using System.Diagnostics;
 #endregion
 
 namespace GestureLib.Gestures

@@ -110,23 +110,27 @@ namespace GestureLib
                     break;
 
                 case GestureType.WaveLeft:
-                    segments = new IGestureSegment[4];
+                    segments = new IGestureSegment[6];
                     WaveLeftSegment1 waveLeftSegment1 = new WaveLeftSegment1();
                     WaveLeftSegment2 waveLeftSegment2 = new WaveLeftSegment2();
                     segments[0] = waveLeftSegment1;
                     segments[1] = waveLeftSegment2;
                     segments[2] = waveLeftSegment1;
                     segments[3] = waveLeftSegment2;
+                    segments[4] = waveLeftSegment1;
+                    segments[5] = waveLeftSegment2;
                     break;
 
                 case GestureType.WaveRight:
-                    segments = new IGestureSegment[4];
+                    segments = new IGestureSegment[6];
                     WaveRightSegment1 waveRightSegment1 = new WaveRightSegment1();
                     WaveRightSegment2 waveRightSegment2 = new WaveRightSegment2();
                     segments[0] = waveRightSegment1;
                     segments[1] = waveRightSegment2;
                     segments[2] = waveRightSegment1;
                     segments[3] = waveRightSegment2;
+                    segments[4] = waveRightSegment1;
+                    segments[5] = waveRightSegment2;
                     break;
 
                 case GestureType.ZoomOut:
