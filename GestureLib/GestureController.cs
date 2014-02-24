@@ -72,12 +72,12 @@ namespace GestureLib
                     }
                     break;
 
-                case GestureType.Menu:
+                case GestureType.StatusChange:
                     segments = new IGestureSegment[20];
-                    MenuSegment1 menuSegment = new MenuSegment1();
+                    StatusChangeSegment statusChangeSegment = new StatusChangeSegment();
                     for (int i = 0; i < 20; i++)
                     {
-                        segments[i] = menuSegment;
+                        segments[i] = statusChangeSegment;
                     }
                     break;
 

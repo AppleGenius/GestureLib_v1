@@ -16,7 +16,7 @@ namespace GestureLib
 
         WaveLeft,
 
-        Menu,
+        StatusChange,
 
         SwipeLeft,
 

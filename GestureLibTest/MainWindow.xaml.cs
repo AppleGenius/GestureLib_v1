@@ -116,7 +116,7 @@ namespace GestureLibTest
             {
                 case GestureType.JoinedHands:
                     break;
-                case GestureType.Menu:
+                case GestureType.StatusChange:
                     break;
                 case GestureType.SwipeDown:
                     break;
