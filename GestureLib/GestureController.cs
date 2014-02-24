@@ -63,18 +63,18 @@ namespace GestureLib
 
             switch (type)
             {
-                case GestureType.JoinedHands:
+                case GestureType.StatusChange:
                     segments = new IGestureSegment[20];
-                    JoinedHandsSegment1 joinedhandsSegment = new JoinedHandsSegment1();
+                    StatusChangeSegment1 joinedhandsSegment = new StatusChangeSegment1();
                     for (int i = 0; i < 20; i++)
                     {
                         segments[i] = joinedhandsSegment;
                     }
                     break;
 
-                case GestureType.StatusChange:
+                case GestureType.Exit:
                     segments = new IGestureSegment[20];
-                    StatusChangeSegment statusChangeSegment = new StatusChangeSegment();
+                    ExitSegment statusChangeSegment = new ExitSegment();
                     for (int i = 0; i < 20; i++)
                     {
                         segments[i] = statusChangeSegment;

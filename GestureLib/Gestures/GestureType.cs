@@ -10,13 +10,13 @@ namespace GestureLib
 
         All,
 
-        JoinedHands,
+        StatusChange,
 
         WaveRight,
 
         WaveLeft,
 
-        StatusChange,
+        Exit,
 
         SwipeLeft,
 

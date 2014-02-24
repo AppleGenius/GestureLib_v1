@@ -114,9 +114,9 @@ namespace GestureLibTest
 
             switch (e.Type)
             {
-                case GestureType.JoinedHands:
-                    break;
                 case GestureType.StatusChange:
+                    break;
+                case GestureType.Exit:
                     break;
                 case GestureType.SwipeDown:
                     break;

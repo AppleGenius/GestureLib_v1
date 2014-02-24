@@ -4,7 +4,7 @@ using Microsoft.Kinect;
 
 namespace GestureLib.Gestures
 {
-    public class StatusChangeSegment : IGestureSegment
+    public class ExitSegment : IGestureSegment
     {
         public GesturePartResult Update(Skeleton skeleton)
         {
