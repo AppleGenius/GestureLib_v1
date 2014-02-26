@@ -5,7 +5,7 @@ using System.Diagnostics;
 using System.IO;
 using System.Linq;
 using System.Collections.Generic;
-#endregion 
+#endregion
 
 namespace GestureLib
 {
@@ -51,7 +51,7 @@ namespace GestureLib
             int legLeftTrackedJoints = NumberOfTrackedJoints(hipLeft, kneeLeft, ankleLeft, footLeft);
             int legRightTrackedJoints = NumberOfTrackedJoints(hipRight, kneeRight, ankleRight, footRight);
 
-            double legLength = legLeftTrackedJoints > legRightTrackedJoints ? Distance(hipLeft, kneeLeft, ankleLeft, footLeft) : Distance(hipRight, kneeRight, ankleRight, footRight);            
+            double legLength = legLeftTrackedJoints > legRightTrackedJoints ? Distance(hipLeft, kneeLeft, ankleLeft, footLeft) : Distance(hipRight, kneeRight, ankleRight, footRight);
 
             return Distance(head, neck, spine, waist) + legLength + HEAD_DIVERGENCE;
         }
@@ -130,7 +130,7 @@ namespace GestureLib
         private static float Scale(double maxPixel, double maxSkeleton, float position)
         {
             float value = (float)((((maxPixel / maxSkeleton) / 2) * position) + (maxPixel / 2));
-            
+
             if (value > maxPixel)
             {
                 return (float)maxPixel;
