@@ -31,7 +31,7 @@ namespace GestureLib.Gestures
             // hand above elbow
             if (skeleton.Joints[JointType.HandLeft].Position.Y > skeleton.Joints[JointType.ElbowLeft].Position.Y)
             {
-                // hand right of elbow
+                // hand left of elbow
                 if (skeleton.Joints[JointType.HandLeft].Position.X < skeleton.Joints[JointType.ElbowLeft].Position.X)
                 {
                     return GesturePartResult.Succeeded;

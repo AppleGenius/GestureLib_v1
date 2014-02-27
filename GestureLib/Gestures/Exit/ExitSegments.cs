@@ -14,7 +14,7 @@ namespace GestureLib.Gestures
                 // left hand 0.3 to left of center hip
                 if (skeleton.Joints[JointType.HandLeft].Position.X < skeleton.Joints[JointType.HipCenter].Position.X - 0.3)
                 {
-                    // left hand 0.2 to left of left elbow
+                    // left hand 0.2 to left of left elbow or 0.1 
                     if (skeleton.Joints[JointType.HandLeft].Position.X < skeleton.Joints[JointType.ElbowLeft].Position.X - 0.2)
                     {
                         return GesturePartResult.Succeeded;
