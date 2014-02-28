@@ -18,10 +18,10 @@ namespace GestureLib
 
         IGestureSegment[] _segments;    
         int _currentSegment = 0;        // The current gesture segment are matching.
-        int _pausedFrameCount = 10;     // The number of frames to paused.
+        int _pausedFrameCount = 10;     
         int _frameCount = 0;            // The pause frame counter.
-        bool _paused = false;           // Paused status.
-        string _name;                   // Gesture name.
+        bool _paused = false;           
+        string _name;                   
         GestureType _type;              
 
         #endregion
@@ -60,7 +60,6 @@ namespace GestureLib
                 {
                     _paused = false;
                 }
-
                 _frameCount++;
             }
 
