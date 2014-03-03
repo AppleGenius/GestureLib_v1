@@ -44,7 +44,7 @@ namespace GestureLib.Gestures
                     if (skeleton.Joints[JointType.HandRight].Position.X > skeleton.Joints[JointType.ShoulderRight].Position.X && skeleton.Joints[JointType.HandLeft].Position.X < skeleton.Joints[JointType.ShoulderLeft].Position.X)
                     {
                         return GesturePartResult.Succeeded;
-                    }
+                    }    
                     return GesturePartResult.Undetermined;
                 }
                 return GesturePartResult.Failed;
