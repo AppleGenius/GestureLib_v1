@@ -1,10 +1,10 @@
 ﻿#region using...
 using Microsoft.Kinect;
-#endregion
+#endregion 
 
 namespace GestureLib.Gestures
 {
-    public class SwipeUpSegment1 : IGestureSegment
+    public class SwipeRightSegment1 : IGestureSegment
     {
         public GesturePartResult Update(Skeleton skeleton)
         {
@@ -14,8 +14,8 @@ namespace GestureLib.Gestures
                 // right hand below head and up the hip center
                 if (skeleton.Joints[JointType.HandRight].Position.Y < skeleton.Joints[JointType.Head].Position.Y && skeleton.Joints[JointType.HandRight].Position.Y > skeleton.Joints[JointType.HipCenter].Position.Y)
                 {
-                    // right eblow right of right shoulder and right hand
-                    if (skeleton.Joints[JointType.ElbowRight].Position.X > skeleton.Joints[JointType.ShoulderRight].Position.X && skeleton.Joints[JointType.ElbowRight].Position.X > skeleton.Joints[JointType.HandRight].Position.X)
+                    // right hand left of right shoulder & right of left shoulder
+                    if (skeleton.Joints[JointType.HandRight].Position.X < skeleton.Joints[JointType.ShoulderRight].Position.X && skeleton.Joints[JointType.HandRight].Position.X > skeleton.Joints[JointType.ShoulderLeft].Position.X)
                     {
                         return GesturePartResult.Succeeded;
                     }
@@ -26,4 +26,6 @@ namespace GestureLib.Gestures
             return GesturePartResult.Failed;
         }
     }
+
+    
 }

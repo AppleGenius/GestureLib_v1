@@ -55,10 +55,15 @@
     <Compile Include="Gestures\GestureEventArgs.cs" />
     <Compile Include="Gestures\GestureType.cs" />
     <Compile Include="Gestures\IGestureSegment.cs" />
+    <Compile Include="Gestures\Restore\RestoreSegments.cs" />
     <Compile Include="Gestures\Rotate\RotateAntiClockSegments.cs" />
     <Compile Include="Gestures\Rotate\RotateClockSegments.cs" />
+    <Compile Include="Gestures\SwipeLeft\SwipeLeftSegment2.cs" />
+    <Compile Include="Gestures\SwipeRight\SwipeRightSegment2.cs" />
     <Compile Include="Gestures\Translate\TranslateLeftSegments.cs" />
     <Compile Include="Gestures\Translate\TranslateRightSegments.cs" />
+    <Compile Include="Gestures\Zoom\ZoomSegment2.cs" />
+    <Compile Include="Gestures\Zoom\ZoomSegment3.cs" />
     <Compile Include="Postures\CursorAdorner.cs" />
     <Compile Include="Postures\GesturePoint.cs" />
     <Compile Include="Postures\HoverButton\HoverButton.cs" />
@@ -73,15 +78,13 @@
     <Compile Include="Gestures\Exit\ExitSegments.cs" />
     <Compile Include="Gestures\SwipeDown\SwipeDownSegment1.cs" />
     <Compile Include="Gestures\SwipeDown\SwipeDownSegment2.cs" />
-    <Compile Include="Gestures\SwipeDown\SwipeDownSegment3.cs" />
-    <Compile Include="Gestures\SwipeLeft\SwipeLeftSegments.cs" />
-    <Compile Include="Gestures\SwipeRight\SwipeRightSegments.cs" />
+    <Compile Include="Gestures\SwipeLeft\SwipeLeftSegment1.cs" />
+    <Compile Include="Gestures\SwipeRight\SwipeRightSegment1.cs" />
     <Compile Include="Gestures\SwipeUp\SwipeUpSegment1.cs" />
     <Compile Include="Gestures\SwipeUp\SwipeUpSegment2.cs" />
-    <Compile Include="Gestures\SwipeUp\SwipeUpSegment3.cs" />
     <Compile Include="Gestures\WaveLeft\WaveLeftSegments.cs" />
     <Compile Include="Gestures\WaveRight\WaveRightSegments.cs" />
-    <Compile Include="Gestures\Zoom\ZoomSegments.cs" />
+    <Compile Include="Gestures\Zoom\ZoomSegment1.cs" />
     <Compile Include="SensorExtensions.cs" />
     <Compile Include="SkeletonExtensions.cs" />
   </ItemGroup>

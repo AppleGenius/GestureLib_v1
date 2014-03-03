@@ -4,18 +4,18 @@ using Microsoft.Kinect;
 
 namespace GestureLib.Gestures
 {
-    public class SwipeUpSegment1 : IGestureSegment
+    public class SwipeLeftSegment1 : IGestureSegment
     {
         public GesturePartResult Update(Skeleton skeleton)
         {
             // right hand in front of right shoulder
-            if (skeleton.Joints[JointType.HandRight].Position.Z < skeleton.Joints[JointType.ShoulderRight].Position.Z)
+            if (skeleton.Joints[JointType.HandRight].Position.Z < skeleton.Joints[JointType.ElbowRight].Position.Z && skeleton.Joints[JointType.HandLeft].Position.Y < skeleton.Joints[JointType.ShoulderCenter].Position.Y)
             {
-                // right hand below head and up the hip center
+                // right hand below head and up the hipcenter
                 if (skeleton.Joints[JointType.HandRight].Position.Y < skeleton.Joints[JointType.Head].Position.Y && skeleton.Joints[JointType.HandRight].Position.Y > skeleton.Joints[JointType.HipCenter].Position.Y)
                 {
-                    // right eblow right of right shoulder and right hand
-                    if (skeleton.Joints[JointType.ElbowRight].Position.X > skeleton.Joints[JointType.ShoulderRight].Position.X && skeleton.Joints[JointType.ElbowRight].Position.X > skeleton.Joints[JointType.HandRight].Position.X)
+                    // right hand right of right shoulder
+                    if (skeleton.Joints[JointType.HandRight].Position.X > skeleton.Joints[JointType.ShoulderRight].Position.X)
                     {
                         return GesturePartResult.Succeeded;
                     }
@@ -26,4 +26,5 @@ namespace GestureLib.Gestures
             return GesturePartResult.Failed;
         }
     }
+
 }

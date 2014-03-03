@@ -65,48 +65,53 @@ namespace GestureLib
             {
                 case GestureType.StatusChange:
                     segments = new IGestureSegment[20];
-                    StatusChangeSegment1 joinedhandsSegment = new StatusChangeSegment1();
-                    for (int i = 0; i < 20; i++)
-                    {
-                        segments[i] = joinedhandsSegment;
-                    }
-                    break;
-
-                case GestureType.Exit:
-                    segments = new IGestureSegment[20];
-                    ExitSegment statusChangeSegment = new ExitSegment();
+                    StatusChangeSegment1 statusChangeSegment = new StatusChangeSegment1();
                     for (int i = 0; i < 20; i++)
                     {
                         segments[i] = statusChangeSegment;
                     }
                     break;
 
+                case GestureType.Exit:
+                    segments = new IGestureSegment[20];
+                    ExitSegment exitSegment = new ExitSegment();
+                    for (int i = 0; i < 20; i++)
+                    {
+                        segments[i] = exitSegment;
+                    }
+                    break;
+                
+                case GestureType.Restore:
+                    segments = new IGestureSegment[20];
+                    RestoreSegment restoreSegment = new RestoreSegment();
+                    for (int i = 0; i < 20; i++)
+                    {
+                        segments[i] = restoreSegment;
+                    }
+                    break;
+
                 case GestureType.SwipeDown:
-                    segments = new IGestureSegment[3];
+                    segments = new IGestureSegment[2];
                     segments[0] = new SwipeDownSegment1();
                     segments[1] = new SwipeDownSegment2();
-                    segments[2] = new SwipeDownSegment3();
                     break;
 
                 case GestureType.SwipeLeft:
-                    segments = new IGestureSegment[3];
+                    segments = new IGestureSegment[2];
                     segments[0] = new SwipeLeftSegment1();
                     segments[1] = new SwipeLeftSegment2();
-                    segments[2] = new SwipeLeftSegment3();
                     break;
 
                 case GestureType.SwipeRight:
-                    segments = new IGestureSegment[3];
+                    segments = new IGestureSegment[2];
                     segments[0] = new SwipeRightSegment1();
                     segments[1] = new SwipeRightSegment2();
-                    segments[2] = new SwipeRightSegment3();
                     break;
 
                 case GestureType.SwipeUp:
-                    segments = new IGestureSegment[3];
+                    segments = new IGestureSegment[2];
                     segments[0] = new SwipeUpSegment1();
                     segments[1] = new SwipeUpSegment2();
-                    segments[2] = new SwipeUpSegment3();
                     break;
 
                 case GestureType.WaveLeft:

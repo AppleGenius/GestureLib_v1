@@ -17,6 +17,8 @@ namespace GestureLib
         WaveLeft,
 
         Exit,
+        
+        Restore,
 
         SwipeLeft,
 

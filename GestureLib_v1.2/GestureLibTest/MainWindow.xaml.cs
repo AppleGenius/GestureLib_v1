@@ -118,6 +118,8 @@ namespace GestureLibTest
                     break;
                 case GestureType.Exit:
                     break;
+                case GestureType.Restore:
+                    break;
                 case GestureType.SwipeDown:
                     break;
                 case GestureType.SwipeLeft:

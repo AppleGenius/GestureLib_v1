@@ -11,11 +11,11 @@ namespace GestureLib.Gestures
             // right hand in front of right shoulder
             if (skeleton.Joints[JointType.HandRight].Position.Z < skeleton.Joints[JointType.ShoulderRight].Position.Z)
             {
-                // right hand above right shoulder
-                if (skeleton.Joints[JointType.HandRight].Position.Y > skeleton.Joints[JointType.ShoulderRight].Position.Y)
+                // right hand up the head
+                if (skeleton.Joints[JointType.HandRight].Position.Y > skeleton.Joints[JointType.Head].Position.Y)
                 {
-                    // right hand right of right shoulder
-                    if (skeleton.Joints[JointType.HandRight].Position.X > skeleton.Joints[JointType.ShoulderRight].Position.X)
+                    // right eblow right of right shoulder and right hand
+                    if (skeleton.Joints[JointType.ElbowRight].Position.X > skeleton.Joints[JointType.ShoulderRight].Position.X && skeleton.Joints[JointType.ElbowRight].Position.X > skeleton.Joints[JointType.HandRight].Position.X)
                     {
                         return GesturePartResult.Succeeded;
                     }
