@@ -4,7 +4,7 @@ using Microsoft.Kinect;
 
 namespace GestureLib.Gestures
 {
-    public class SwipeLeftSegment1 : IGestureSegment
+    public class SwipeRightSegment3 : IGestureSegment
     {
         public GesturePartResult Update(Skeleton skeleton)
         {
@@ -26,5 +26,4 @@ namespace GestureLib.Gestures
             return GesturePartResult.Failed;
         }
     }
-
 }

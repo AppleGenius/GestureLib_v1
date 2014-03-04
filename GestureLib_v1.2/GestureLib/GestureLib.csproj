@@ -59,6 +59,8 @@
     <Compile Include="Gestures\Rotate\RotateAntiClockSegments.cs" />
     <Compile Include="Gestures\Rotate\RotateClockSegments.cs" />
     <Compile Include="Gestures\SwipeLeft\SwipeLeftSegment2.cs" />
+    <Compile Include="Gestures\SwipeLeft\SwipeLeftSegment3.cs" />
+    <Compile Include="Gestures\SwipeRight\SwipeRightSegment3.cs" />
     <Compile Include="Gestures\SwipeRight\SwipeRightSegment2.cs" />
     <Compile Include="Gestures\Translate\TranslateLeftSegments.cs" />
     <Compile Include="Gestures\Translate\TranslateRightSegments.cs" />

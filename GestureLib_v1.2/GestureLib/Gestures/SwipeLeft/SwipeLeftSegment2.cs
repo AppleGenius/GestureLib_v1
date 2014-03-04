@@ -9,9 +9,9 @@ namespace GestureLib.Gestures
         public GesturePartResult Update(Skeleton skeleton)
         {
             // right hand in front of right shoulder
-            if (skeleton.Joints[JointType.HandRight].Position.Z < skeleton.Joints[JointType.ShoulderRight].Position.Z)
+            if (skeleton.Joints[JointType.HandRight].Position.Z < skeleton.Joints[JointType.ElbowRight].Position.Z && skeleton.Joints[JointType.HandLeft].Position.Y < skeleton.Joints[JointType.ShoulderCenter].Position.Y)
             {
-                // right hand below head and up the hip center
+                // right hand below shoulder height but above hip height
                 if (skeleton.Joints[JointType.HandRight].Position.Y < skeleton.Joints[JointType.Head].Position.Y && skeleton.Joints[JointType.HandRight].Position.Y > skeleton.Joints[JointType.HipCenter].Position.Y)
                 {
                     // right hand left of right shoulder & right of left shoulder

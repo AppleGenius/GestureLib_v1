@@ -97,15 +97,18 @@ namespace GestureLib
                     break;
 
                 case GestureType.SwipeLeft:
-                    segments = new IGestureSegment[2];
+                    segments = new IGestureSegment[3];
                     segments[0] = new SwipeLeftSegment1();
                     segments[1] = new SwipeLeftSegment2();
+                    segments[2] = new SwipeLeftSegment3();
+
                     break;
 
                 case GestureType.SwipeRight:
-                    segments = new IGestureSegment[2];
+                    segments = new IGestureSegment[3];
                     segments[0] = new SwipeRightSegment1();
                     segments[1] = new SwipeRightSegment2();
+                    segments[2] = new SwipeRightSegment3();
                     break;
 
                 case GestureType.SwipeUp:

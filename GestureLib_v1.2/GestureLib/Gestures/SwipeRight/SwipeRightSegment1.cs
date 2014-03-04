@@ -1,6 +1,6 @@
 ﻿#region using...
 using Microsoft.Kinect;
-#endregion 
+#endregion
 
 namespace GestureLib.Gestures
 {
@@ -8,14 +8,14 @@ namespace GestureLib.Gestures
     {
         public GesturePartResult Update(Skeleton skeleton)
         {
-            // right hand in front of right shoulder
-            if (skeleton.Joints[JointType.HandRight].Position.Z < skeleton.Joints[JointType.ShoulderRight].Position.Z)
+            // Right hand in front of right Shoulder
+            if (skeleton.Joints[JointType.HandRight].Position.Z < skeleton.Joints[JointType.ElbowRight].Position.Z && skeleton.Joints[JointType.HandLeft].Position.Y < skeleton.Joints[JointType.ShoulderCenter].Position.Y)
             {
-                // right hand below head and up the hip center
-                if (skeleton.Joints[JointType.HandRight].Position.Y < skeleton.Joints[JointType.Head].Position.Y && skeleton.Joints[JointType.HandRight].Position.Y > skeleton.Joints[JointType.HipCenter].Position.Y)
+                // right hand below shoulder height but above hip height
+                if (skeleton.Joints[JointType.HandRight].Position.Y < skeleton.Joints[JointType.ShoulderCenter].Position.Y && skeleton.Joints[JointType.HandRight].Position.Y > skeleton.Joints[JointType.HipCenter].Position.Y)
                 {
-                    // right hand left of right shoulder & right of left shoulder
-                    if (skeleton.Joints[JointType.HandRight].Position.X < skeleton.Joints[JointType.ShoulderRight].Position.X && skeleton.Joints[JointType.HandRight].Position.X > skeleton.Joints[JointType.ShoulderLeft].Position.X)
+                    // right hand left of center hip
+                    if (skeleton.Joints[JointType.HandRight].Position.X < skeleton.Joints[JointType.ShoulderLeft].Position.X)
                     {
                         return GesturePartResult.Succeeded;
                     }
@@ -26,6 +26,4 @@ namespace GestureLib.Gestures
             return GesturePartResult.Failed;
         }
     }
-
-    
 }
