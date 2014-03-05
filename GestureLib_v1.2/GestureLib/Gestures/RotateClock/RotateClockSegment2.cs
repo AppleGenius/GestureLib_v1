@@ -4,7 +4,7 @@ using Microsoft.Kinect;
 
 namespace GestureLib.Gestures
 {
-    public class RotateClockSegments1:IGestureSegment
+    public class RotateClockSegment2 : IGestureSegment
     {
         public GesturePartResult Update(Skeleton skeleton)
         {
@@ -24,39 +24,6 @@ namespace GestureLib.Gestures
                     return GesturePartResult.Undetermined;
                 }
                 return GesturePartResult.Failed;
-            }
-            return GesturePartResult.Failed;
-        }
-    }
-
-
-    public class RotateClockSegments2 : IGestureSegment
-    {
-        public GesturePartResult Update(Skeleton skeleton)
-        {
-            // Right and left hand in front of the Elbow
-            if (skeleton.Joints[JointType.HandLeft].Position.Z < skeleton.Joints[JointType.ElbowLeft].Position.Z && skeleton.Joints[JointType.HandRight].Position.Z < skeleton.Joints[JointType.ElbowRight].Position.Z)
-            {
-                if (skeleton.Joints[JointType.HandRight].Position.Y < skeleton.Joints[JointType.ShoulderCenter].Position.Y && skeleton.Joints[JointType.HandRight].Position.Y > skeleton.Joints[JointType.HipCenter].Position.Y &&
-                    skeleton.Joints[JointType.HandLeft].Position.Y < skeleton.Joints[JointType.ShoulderCenter].Position.Y && skeleton.Joints[JointType.HandLeft].Position.Y > skeleton.Joints[JointType.HipCenter].Position.Y)
-                {
-
-                }
-                return GesturePartResult.Failed;
-            }
-            return GesturePartResult.Failed;
-        }
-    }
-
-
-    public class RotateClockSegments3 : IGestureSegment
-    {
-        public GesturePartResult Update(Skeleton skeleton)
-        {
-            // Right and left hand in front of the Elbow
-            if (skeleton.Joints[JointType.HandLeft].Position.Z < skeleton.Joints[JointType.ElbowLeft].Position.Z && skeleton.Joints[JointType.HandRight].Position.Z < skeleton.Joints[JointType.ElbowRight].Position.Z)
-            {
-                
             }
             return GesturePartResult.Failed;
         }
