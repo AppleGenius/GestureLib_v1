@@ -35,7 +35,8 @@ namespace GestureLib.WPF
 
         public static bool Capture(this ImageSource bitmap, string path)
         {
-            if (bitmap == null || path == null || string.IsNullOrWhiteSpace(path)) return false;
+            if (bitmap == null || path == null || string.IsNullOrWhiteSpace(path)) 
+                return false;
 
             try
             {

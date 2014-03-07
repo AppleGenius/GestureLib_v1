@@ -9,7 +9,7 @@ namespace GestureLib
     {
         #region Constants
 
-        readonly int WINDOW_SIZE = 50;
+        readonly int WINDOW_SIZE = 100;
         readonly int MAX_PAUSE_COUNT = 10; // The max frames for a paused gesture.
 
         #endregion
@@ -44,7 +44,6 @@ namespace GestureLib
         {
             _type = type;
             _segments = segments;
-
             _name = type.ToString();
         }
 
@@ -80,7 +79,7 @@ namespace GestureLib
                     if (GestureRecognized != null)
                     {
                         // Event Publication
-                        GestureRecognized(this, new GestureEventArgs(_name, skeleton.TrackingId));   
+                        GestureRecognized(this, new GestureEventArgs(_name, skeleton.TrackingId));
                         Reset();
                     }
                 }

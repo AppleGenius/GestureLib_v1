@@ -91,9 +91,18 @@ namespace GestureLib
                     break;
 
                 case GestureType.SwipeDown:
-                    segments = new IGestureSegment[2];
-                    segments[0] = new SwipeDownSegment1();
-                    segments[1] = new SwipeDownSegment2();
+                    segments = new IGestureSegment[11];
+                    //the original Method
+                    //segments[0] = new SwipeDownSegment1();
+                    //segments[1] = new SwipeDownSegment2();
+                    //On:140307
+                    //To test the pause segments to configure the conflict gestures
+                    SwipeDownSegment1 swipeDownSegment1 = new SwipeDownSegment1();
+                    for (int i = 0; i < 10; i++)
+                    {
+                        segments[i] = swipeDownSegment1;
+                    }
+                    segments[11] = new SwipeDownSegment2();
                     break;
 
                 case GestureType.SwipeLeft:
@@ -101,7 +110,6 @@ namespace GestureLib
                     segments[0] = new SwipeLeftSegment1();
                     segments[1] = new SwipeLeftSegment2();
                     segments[2] = new SwipeLeftSegment3();
-
                     break;
 
                 case GestureType.SwipeRight:
