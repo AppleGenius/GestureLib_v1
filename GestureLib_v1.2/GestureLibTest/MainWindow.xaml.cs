@@ -1,5 +1,4 @@
-﻿#region using...
-
+﻿#region using...  
 using GestureLib;
 using GestureLib.WPF;
 using Microsoft.Kinect;
@@ -48,12 +47,12 @@ namespace GestureLibTest
 
                     _gestureController = new GestureController(GestureType.All);
                     _gestureController.GestureRecognized += GestureController_GestureRecognized;
-
+                   
                     sensor.Start();
                 }
                 catch(InvalidOperationException)
                 {
-
+                    // Error handler
                 }
             }
         }
@@ -167,3 +166,4 @@ namespace GestureLibTest
         Depth
     }
 }
+
