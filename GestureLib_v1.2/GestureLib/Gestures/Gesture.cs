@@ -26,12 +26,6 @@ namespace GestureLib
 
         #endregion
 
-        #region Events
-
-        public event EventHandler<GestureEventArgs> GestureRecognized;
-
-        #endregion
-
         #region Constructor
 
         public Gesture(string name, IGestureSegment[] segments)
@@ -49,6 +43,12 @@ namespace GestureLib
 
         #endregion
 
+        #region Events
+
+        public event EventHandler<GestureEventArgs> GestureRecognized;
+
+        #endregion
+
         #region Methods
 
         public void Update(Skeleton skeleton)
@@ -62,7 +62,7 @@ namespace GestureLib
                 _frameCount++;
             }
 
-            // Current segment result
+            // Current segment result  
             GesturePartResult result = _segments[_currentSegment].Update(skeleton);
 
             if (result == GesturePartResult.Succeeded)
