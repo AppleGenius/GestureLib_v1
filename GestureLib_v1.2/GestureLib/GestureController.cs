@@ -95,7 +95,7 @@ namespace GestureLib
                     //the original Method
                     //segments[0] = new SwipeDownSegment1();
                     //segments[1] = new SwipeDownSegment2();
-                    //On:140307
+                    //On:140327
                     //To test the pause segments to configure the conflict gestures
                     SwipeDownSegment1 swipeDownSegment1 = new SwipeDownSegment1();
                     for (int i = 0; i < 10; i++)
@@ -205,17 +205,17 @@ namespace GestureLib
             }
         }
 
-        public void AddGesture(string name, IGestureSegment[] segments)
-        {
-            Gesture gesture = new Gesture(name, segments);
-            gesture.GestureRecognized += OnGestureRecognized;
+        //public void AddGesture(string name, IGestureSegment[] segments)
+        //{
+        //    Gesture gesture = new Gesture(name, segments);
+        //    gesture.GestureRecognized += OnGestureRecognized;
 
-            _gestures.Add(gesture);
-        }
+        //    _gestures.Add(gesture);
+        //}
 
         #endregion
 
-        #region Event handlers
+        #region Event handler
 
         private void OnGestureRecognized(object sender, GestureEventArgs e)
         {
