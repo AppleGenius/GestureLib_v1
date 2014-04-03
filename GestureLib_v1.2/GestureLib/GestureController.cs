@@ -96,6 +96,15 @@ namespace GestureLib
                     segments[1] = new SwipeDownSegment2();
                     break;
 
+                    //segments = new IGestureSegment[6];
+                    //SwipeDownSegment1 swipeDown = new SwipeDownSegment1();
+                    //for (int i = 0; i < 5; i++)
+                    //{
+                    //    segments[i] = swipeDown;
+                    //}
+                    //segments[5] = new SwipeDownSegment2();
+                    //break;
+
                 case GestureType.SwipeLeft:
                     segments = new IGestureSegment[3];
                     segments[0] = new SwipeLeftSegment1();
@@ -157,8 +166,8 @@ namespace GestureLib
                 case GestureType.RotateClock:
                     segments = new IGestureSegment[3];
                     segments[0] = new RotateClockSegments1();
-                    segments[0] = new RotateClockSegments2();
-                    segments[0] = new RotateClockSegments3();
+                    segments[1] = new RotateClockSegments2();
+                    segments[2] = new RotateClockSegments3();
                     break;
 
                 case GestureType.RotateAntiClock:
