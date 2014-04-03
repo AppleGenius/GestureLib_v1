@@ -26,17 +26,4 @@ namespace GestureLib.Gestures
             return GesturePartResult.Failed;
         }
     }
-
-
-    //public class SwipeRightSegment4 : IGestureSegment
-    //{
-    //    public GesturePartResult Update(Skeleton skeleton)
-    //    {
-    //        if (skeleton.Joints[JointType.HandRight].Position.Z < skeleton.Joints[JointType.ElbowRight].Position.Z && skeleton.Joints[JointType.HandLeft].Position.Y < skeleton.Joints[JointType.ShoulderCenter].Position.Y)
-    //        {
-    //            if (skeleton.Joints[JointType.HandRight].Position.Y > skeleton.Joints[JointType.HipCenter].Position.Y)
-    //        }
-    //        return GesturePartResult.Failed;
-    //    }
-    //}
 }

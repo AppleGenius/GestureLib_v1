@@ -9,20 +9,26 @@ namespace GestureLib
     {
         #region Constants
 
-        readonly int WINDOW_SIZE = 100;
+        readonly int WINDOW_SIZE = 50;
         readonly int MAX_PAUSE_COUNT = 10; // The max frames for a paused gesture.
 
         #endregion
 
         #region Members
 
-        IGestureSegment[] _segments;
+        IGestureSegment[] _segments;    
         int _currentSegment = 0;        // The current gesture segment are matching.
-        int _pausedFrameCount = 10;
+        int _pausedFrameCount = 10;     
         int _frameCount = 0;            // The pause frame counter.
-        bool _paused = false;
-        string _name;
+        bool _paused = false;           
+        string _name;                   
         GestureType _type;              
+
+        #endregion
+
+        #region Events
+
+        public event EventHandler<GestureEventArgs> GestureRecognized;
 
         #endregion
 
@@ -38,14 +44,9 @@ namespace GestureLib
         {
             _type = type;
             _segments = segments;
+
             _name = type.ToString();
         }
-
-        #endregion
-
-        #region Events
-
-        public event EventHandler<GestureEventArgs> GestureRecognized;
 
         #endregion
 
@@ -62,7 +63,7 @@ namespace GestureLib
                 _frameCount++;
             }
 
-            // Current segment result  
+            // Current segment result
             GesturePartResult result = _segments[_currentSegment].Update(skeleton);
 
             if (result == GesturePartResult.Succeeded)
@@ -79,7 +80,7 @@ namespace GestureLib
                     if (GestureRecognized != null)
                     {
                         // Event Publication
-                        GestureRecognized(this, new GestureEventArgs(_name, skeleton.TrackingId));
+                        GestureRecognized(this, new GestureEventArgs(_name, skeleton.TrackingId));   
                         Reset();
                     }
                 }

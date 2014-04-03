@@ -26,5 +26,4 @@ namespace GestureLib.Gestures
             return GesturePartResult.Failed;
         }
     }
-
 }

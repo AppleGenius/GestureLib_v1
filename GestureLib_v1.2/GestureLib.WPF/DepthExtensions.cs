@@ -204,9 +204,9 @@ namespace GestureLib.WPF
                     hue = ((360 * depth / 0xFFF) + loThreshold);
                     ConvertHslToRgb(hue, 100, 100, rgb);
 
-                    enhPixelData[j] = rgb[2];       //Blue
-                    enhPixelData[j + 1] = rgb[1];   //Green
-                    enhPixelData[j + 2] = rgb[0];   //Red
+                    enhPixelData[j] = rgb[2];  //Blue
+                    enhPixelData[j + 1] = rgb[1];  //Green
+                    enhPixelData[j + 2] = rgb[0];  //Red
                 }
             }
 

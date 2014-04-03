@@ -91,18 +91,9 @@ namespace GestureLib
                     break;
 
                 case GestureType.SwipeDown:
-                    segments = new IGestureSegment[11];
-                    //the original Method
-                    //segments[0] = new SwipeDownSegment1();
-                    //segments[1] = new SwipeDownSegment2();
-                    //On:140327
-                    //To test the pause segments to configure the conflict gestures
-                    SwipeDownSegment1 swipeDownSegment1 = new SwipeDownSegment1();
-                    for (int i = 0; i < 10; i++)
-                    {
-                        segments[i] = swipeDownSegment1;
-                    }
-                    segments[11] = new SwipeDownSegment2();
+                    segments = new IGestureSegment[2];
+                    segments[0] = new SwipeDownSegment1();
+                    segments[1] = new SwipeDownSegment2();
                     break;
 
                 case GestureType.SwipeLeft:
@@ -110,6 +101,7 @@ namespace GestureLib
                     segments[0] = new SwipeLeftSegment1();
                     segments[1] = new SwipeLeftSegment2();
                     segments[2] = new SwipeLeftSegment3();
+
                     break;
 
                 case GestureType.SwipeRight:
@@ -164,30 +156,30 @@ namespace GestureLib
                     break;
                 case GestureType.RotateClock:
                     segments = new IGestureSegment[3];
-                    segments[0] = new RotateClockSegment1();
-                    segments[0] = new RotateClockSegment2();
-                    segments[0] = new RotateClockSegment3();
+                    segments[0] = new RotateClockSegments1();
+                    segments[0] = new RotateClockSegments2();
+                    segments[0] = new RotateClockSegments3();
                     break;
 
                 case GestureType.RotateAntiClock:
                     segments = new IGestureSegment[3];
-                    segments[0] = new RotateAntiClockSegment1();
-                    segments[1] = new RotateAntiClockSegment2();
-                    segments[2] = new RotateAntiClockSegment3();
+                    segments[0] = new RotateAntiClockSegments1();
+                    segments[1] = new RotateAntiClockSegments2();
+                    segments[2] = new RotateAntiClockSegments3();
                     break;
 
                 case GestureType.TranslateLeft:
-                    segments = new IGestureSegment[2];
-                    segments[0] = new TranslateLeftSegment1();
-                    segments[1] = new TranslateLeftSegment2();
-                    //segments[2] = new TranslateLeftSegment3();
+                    segments = new IGestureSegment[3];
+                    segments[0] = new TranslateLeftSegments1();
+                    segments[1] = new TranslateLeftSegments2();
+                    segments[2] = new TranslateLeftSegments3();
                     break;
 
                 case GestureType.TranslateRight:
-                    segments = new IGestureSegment[2];
-                    segments[0] = new TranslateRightSegment1();
-                    segments[1] = new TranslateRightSegment2();
-                    //segments[2] = new TranslateRightSegment3();
+                    segments = new IGestureSegment[3];
+                    segments[0] = new TranslateRightSegments1();
+                    segments[1] = new TranslateRightSegments2();
+                    segments[2] = new TranslateRightSegments3();
                     break;
 
                 case GestureType.All:
@@ -205,17 +197,17 @@ namespace GestureLib
             }
         }
 
-        //public void AddGesture(string name, IGestureSegment[] segments)
-        //{
-        //    Gesture gesture = new Gesture(name, segments);
-        //    gesture.GestureRecognized += OnGestureRecognized;
+        public void AddGesture(string name, IGestureSegment[] segments)
+        {
+            Gesture gesture = new Gesture(name, segments);
+            gesture.GestureRecognized += OnGestureRecognized;
 
-        //    _gestures.Add(gesture);
-        //}
+            _gestures.Add(gesture);
+        }
 
         #endregion
 
-        #region Event handler
+        #region Event handlers
 
         private void OnGestureRecognized(object sender, GestureEventArgs e)
         {

@@ -62,8 +62,7 @@ namespace GestureLib.WPF
 
         public static void DrawLine(this Canvas canvas, Joint first, Joint second, Color color, double thickness)
         {
-            if (first.TrackingState == JointTrackingState.NotTracked || second.TrackingState == JointTrackingState.NotTracked) 
-                return;
+            if (first.TrackingState == JointTrackingState.NotTracked || second.TrackingState == JointTrackingState.NotTracked) return;
 
             first = first.ScaleTo(canvas.ActualWidth, canvas.ActualHeight);
             second = second.ScaleTo(canvas.ActualWidth, canvas.ActualHeight);
@@ -94,8 +93,7 @@ namespace GestureLib.WPF
 
         public static void DrawSkeleton(this Canvas canvas, Skeleton skeleton, Color color)
         {
-            if (skeleton == null) 
-                return;
+            if (skeleton == null) return;
             
             foreach (Joint joint in skeleton.Joints)
             {

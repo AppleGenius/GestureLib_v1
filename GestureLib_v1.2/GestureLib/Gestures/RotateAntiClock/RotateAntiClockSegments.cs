@@ -4,7 +4,7 @@ using Microsoft.Kinect;
 
 namespace GestureLib.Gestures
 {
-    public class RotateAntiClockSegment3 : IGestureSegment
+    public class RotateAntiClockSegments1:IGestureSegment
     {
         public GesturePartResult Update(Skeleton skeleton)
         {
@@ -25,6 +25,22 @@ namespace GestureLib.Gestures
                 }
                 return GesturePartResult.Failed;
             }
+            return GesturePartResult.Failed;
+        }       
+    }
+
+    public class RotateAntiClockSegments2 : IGestureSegment
+    {
+        public GesturePartResult Update(Skeleton skeleton)
+        {
+            return GesturePartResult.Failed;
+        }
+    }
+
+    public class RotateAntiClockSegments3 : IGestureSegment
+    {
+        public GesturePartResult Update(Skeleton skeleton)
+        {
             return GesturePartResult.Failed;
         }
     }
